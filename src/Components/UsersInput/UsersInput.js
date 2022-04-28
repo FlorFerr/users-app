@@ -63,7 +63,7 @@ const UsersInput = (props) => {
                 </div>
             </div>
             <div>
-                <Button value={'Add user'}/>
+                <Button value={'Add user'} type='submit'/>
             </div>
         </form>
         

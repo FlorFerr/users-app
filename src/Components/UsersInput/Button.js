@@ -3,7 +3,7 @@ import './Button.css'
 
 const Button = (props) => {
   return (
-    <button type='submit' className='button'>{props.value}</button>
+    <button onClick={props.onClick} type={props.type} className='button'>{props.value}</button>
   )
 }
 
