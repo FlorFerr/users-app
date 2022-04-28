@@ -7,7 +7,7 @@ import './Modal.css'
 const Modal = (props) => {
   return (
         <div>
-            <div className='backdrop'></div>
+            <div className='backdrop' onClick={props.onClose}></div>
             <div className='modal'>
                 <header className='header'>
                     <Button onClick={props.onClose} value={'x'}></Button>
