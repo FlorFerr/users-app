@@ -18,6 +18,10 @@ const UsersInput = (props) => {
     const submitHandler = (e) => {
         e.preventDefault()
 
+        if(userName.length === 0 || (userAge.length === 0 || +userAge < 1)){
+            return
+        }
+
         const usersData = {
             name: userName,
             age: userAge,
@@ -33,7 +37,7 @@ const UsersInput = (props) => {
 
   return (
     <Card>
-        <form action="" onSubmit={submitHandler}>
+        <form action="" className='input' onSubmit={submitHandler}>
             <div>
                 <div>
                     <label htmlFor="">UserName</label>
@@ -45,7 +49,7 @@ const UsersInput = (props) => {
                 </div>
             </div>
             <div>
-                <button type='submit'>Add user</button>
+                <button type='submit' className='button'>Add user</button>
             </div>
         </form>
     </Card>

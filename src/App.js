@@ -15,10 +15,8 @@ function App() {
 
   const saveHandler = (usersData) => {
     setUsers( [usersData, ...users]) 
-  
-
   }
-  console.log(users)
+  
  
   return (
     <div className="App">
