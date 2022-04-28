@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import Card from '../Card/Card'
+import Button from './Button'
+import Modal from '../Modals/Modal'
 import './UsersInput.css';
 
-const UsersInput = (props) => {
 
+const UsersInput = (props) => {
     const [userName, setUserName] = useState('')
     const [userAge, setUserAge] = useState('')
+    const [error, setError] = useState()
 
     const userNameHandler = (e) => {
         setUserName(e.target.value)
@@ -18,7 +21,11 @@ const UsersInput = (props) => {
     const submitHandler = (e) => {
         e.preventDefault()
 
-        if(userName.length === 0 || (userAge.length === 0 || +userAge < 1)){
+        if(userName.trim().length === 0 || (userAge.trim().length === 0 || +userAge < 1)){
+            setError({
+                title: 'Valor inválido',
+                message: 'Ingrese un valor válido'
+            })
             return
         }
 
@@ -35,8 +42,15 @@ const UsersInput = (props) => {
         setUserAge('')
     }
 
+    const errorHandler = () => {
+        setError(null)
+    }
+
   return (
-    <Card>
+      <div className='card'>
+          {error && <Modal onClose={errorHandler} title={error.title} message={error.message}/>}
+
+          <Card>
         <form action="" className='input' onSubmit={submitHandler}>
             <div>
                 <div>
@@ -49,10 +63,13 @@ const UsersInput = (props) => {
                 </div>
             </div>
             <div>
-                <button type='submit' className='button'>Add user</button>
+                <Button value={'Add user'}/>
             </div>
         </form>
+        
     </Card>
+      </div>
+   
   )
 }
 

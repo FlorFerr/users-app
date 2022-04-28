@@ -26,21 +26,4 @@
     border-color: #44173b;
   }
 
-  .button {
-    font: inherit;
-    border: 1px solid #44173b;
-    background: #44173b;
-    color: white;
-    padding: 0.25rem 1rem;
-    cursor: pointer;
-  }
   
-  .button:hover,
-  .button:active {
-    background: #741188;
-    border-color: #741188;
-  }
-  
-  .button:focus {
-    outline: none;
-  }
